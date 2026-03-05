@@ -3,15 +3,15 @@ import * as readline from 'node:readline/promises';
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
-    prompt: 'Enter command: '
+    prompt: '> '
 });
 
 const commands = {
-    'uptime': () => console.log(`Uptime: ${process.uptime()} seconds`),
+    'uptime': () => console.log(`Uptime: ${process.uptime()}s`),
     'cwd': () => console.log(`Current working directory: ${process.cwd()}`),
     'date': () => console.log(`Current date and time: ${new Date().toLocaleString()}`),
     'exit': () => {
-        console.log('\nBye!');
+        console.log('\nGoodbye!');
         rl.close();
     }
 }
@@ -37,7 +37,7 @@ const interactive = async () => {
         if (commands[command]) {
             commands[command]()
         } else {
-            console.log(`Unknown command: ${command}`);
+            console.log(`Unknown command`);
             rl.prompt();
         }
 
