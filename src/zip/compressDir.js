@@ -63,9 +63,9 @@ const compressDir = async () => {
     const compressor = createBrotliCompress();
     compressor.pipe(out);
 
-    const buffer = Buffer.alloc(8);
-    buffer.writeBigInt64LE(BigInt(json.length), 0);
-    out.write(buffer);
+    const buffer = Buffer.alloc(4);
+    buffer.writeInt32LE(json.length);
+    compressor.write(buffer);
     compressor.write(json);
 
     for (const entry of entries) {

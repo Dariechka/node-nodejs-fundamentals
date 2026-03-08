@@ -66,14 +66,9 @@ const decompressDir = async () => {
         });
     }
 
-    const fd = fs.openSync(archive, 'r');
-    const header = Buffer.alloc(8);
-    fs.readSync(fd, header, 0, 8, 0);
-    const jsonLength = Number(header.readBigInt64LE(0));
-    fs.closeSync(fd);
+    const reader = fs.createReadStream(archive).pipe(createBrotliDecompress());
 
-    const reader = fs.createReadStream(archive, {start: 8}).pipe(createBrotliDecompress());
-
+    const jsonLength = (await readBytes(reader, 4)).readInt32LE();
     const jsonBytes = await readBytes(reader, jsonLength);
     const entries = JSON.parse(jsonBytes);
 
