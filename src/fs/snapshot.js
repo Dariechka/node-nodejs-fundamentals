@@ -18,9 +18,8 @@ const snapshot = async () => {
     if (!(await isDir(workspace))) {
         throw new Error("FS operation failed");
     }
-    const entries = [];
 
-    const scan = async (dir) => {
+    const scan = async (dir, entries = []) => {
         const files = await fs.readdir(dir, { withFileTypes: true });
 
         for (const file of files) {
@@ -32,7 +31,7 @@ const snapshot = async () => {
                     type: 'directory',
                 })
 
-                await scan(filePath)
+                await scan(filePath, entries);
             }
             if (file.isFile()) {
                 const stats = await fs.stat(filePath)
@@ -46,9 +45,10 @@ const snapshot = async () => {
                 })
             }
         }
+        return entries;
     }
 
-    await scan(workspace);
+    const entries = await scan(workspace);
 
     const result = {
         rootPath: workspace,
