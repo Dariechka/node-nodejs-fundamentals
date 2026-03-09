@@ -1,5 +1,8 @@
 import {pipeline, Transform} from "stream";
 
+//!!!Please add any helper directories and files required for
+//testing this task to the folder with the same name as the task (e.g. workspace in fs directory).
+
 const lineNumberer = () => {
     // Write your code here
     // Read from process.stdin

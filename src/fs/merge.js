@@ -2,6 +2,9 @@ import path from "node:path";
 import fs from "node:fs/promises";
 import {parseArgs} from "node:util";
 
+//!!!Please add any helper directories and files required for
+//testing this task to the folder with the same name as the task (e.g. workspace in fs directory).
+
 const merge = async () => {
     // Write your code here
     // Default: read all .txt files from workspace/parts in alphabetical order

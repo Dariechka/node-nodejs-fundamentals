@@ -1,6 +1,9 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
+//!!!Please add any helper directories and files required for
+//testing this task to the folder with the same name as the task (e.g. workspace in fs directory).
+
 const snapshot = async () => {
   // Write your code here
   // Recursively scan workspace directory

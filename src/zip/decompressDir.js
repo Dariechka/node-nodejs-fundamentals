@@ -3,6 +3,9 @@ import fsPromises from "fs/promises";
 import fs from "fs";
 import {createBrotliDecompress} from "zlib";
 
+//!!!Please add any helper directories and files required for
+//testing this task to the folder with the same name as the task (e.g. workspace in fs directory).
+
 const decompressDir = async () => {
     // Write your code here
     // Read archive.br from workspace/compressed/

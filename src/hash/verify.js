@@ -3,6 +3,9 @@ import fs from "node:fs/promises";
 import { createReadStream } from "fs";
 import crypto from "crypto";
 
+//!!!Please add any helper directories and files required for
+//testing this task to the folder with the same name as the task (e.g. workspace in fs directory).
+
 const verify = async () => {
   // Write your code here
   // Read checksums.json

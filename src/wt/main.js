@@ -3,6 +3,9 @@ import fs from "fs/promises";
 import os from "os";
 import {Worker} from "worker_threads";
 
+//!!!Please add any helper directories and files required for
+//testing this task to the folder with the same name as the task (e.g. workspace in fs directory).
+
 const main = async () => {
   // Write your code here
   // Read data.json containing array of numbers

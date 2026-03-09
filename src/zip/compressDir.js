@@ -3,6 +3,9 @@ import fs from "fs";
 import fsPromises from "fs/promises";
 import {createBrotliCompress} from "zlib";
 
+//!!!Please add any helper directories and files required for
+//testing this task to the folder with the same name as the task (e.g. workspace in fs directory).
+
 const compressDir = async () => {
     // Write your code here
     // Read all files from workspace/toCompress/
